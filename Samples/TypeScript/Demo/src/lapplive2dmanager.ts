@@ -138,6 +138,7 @@ export class LAppLive2DManager {
 
     for (let i = 0; i < modelCount; ++i) {
       const model: LAppModel = this.getModel(i);
+      // console.log('[lapplive2dmanager] [onUpdate] model', model, model.getModel(), model.getModelMatrix());
 
       if (model.getModel()) {
         if (model.getModel().getCanvasWidth() > 1.0 && width < height) {
@@ -153,6 +154,7 @@ export class LAppLive2DManager {
           projection.multiplyByMatrix(this._viewMatrix);
         }
       }
+      projection.translate(0.5, -0.1);
 
       model.update();
       model.draw(projection); // 参照渡しなのでprojectionは変質する。
