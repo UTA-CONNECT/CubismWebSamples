@@ -18,7 +18,8 @@ window.onload = () => {
 
     lcanvas.run();
 
-    let flandmark = new FLandmark(document.getElementById('fcanvas') as HTMLCanvasElement);
+    let flandmark = new FLandmark(document.getElementById('fcanvas') as HTMLCanvasElement, document.getElementById('webcam') as HTMLVideoElement);
+    flandmark.webcam();
     flandmark.init()
     .then(() => {
         flandmark.detectFace();
