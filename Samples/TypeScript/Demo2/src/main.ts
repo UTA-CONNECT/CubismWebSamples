@@ -1,5 +1,5 @@
 import {LCanvas} from './lcanvas';
-
+import {FLandmark} from './flandmark';
 
 window.onload = () => {
     console.log('hell');
@@ -17,4 +17,10 @@ window.onload = () => {
     })
 
     lcanvas.run();
+
+    let flandmark = new FLandmark(document.getElementById('fcanvas') as HTMLCanvasElement);
+    flandmark.init()
+    .then(() => {
+        flandmark.detectFace();
+    });
 }
